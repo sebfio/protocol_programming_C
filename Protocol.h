@@ -39,6 +39,9 @@
 #define EXTENDS_CLASSES                                                     \
     struct
 
+#define PASTE_PUBLIC_PARTS(_classname)                                      \
+    struct _classname pub
+
 #define END_CLASS   };
 
 #endif // PROTOCOL_H_
