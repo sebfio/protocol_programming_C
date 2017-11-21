@@ -42,6 +42,10 @@
 #define PASTE_PUBLIC_PARTS(_classname)                                      \
     struct _classname pub
 
+#define GET_THIS(_classname)                                                \
+    struct _classname ## PRIVATE *this = (struct _classname ## PRIVATE *) self;
+
+
 #define END_CLASS   };
 
 #endif // PROTOCOL_H_
