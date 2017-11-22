@@ -17,25 +17,22 @@
 #define GET_THIS(_classname)                                                \
     struct _classname ## PRIVATE *this = (struct _classname ## PRIVATE *) self
 
-#define CREATE_OBJECT(_object, _classname)                                  \
-    struct _classname *(_object) = CONSTRUCTOR(_classname)
-
 #define CONSTRUCTOR_STD(_classname)                                         \
     struct _classname ## PRIVATE *this = malloc(sizeof(struct _classname ## PRIVATE)); \
     if (!this) {                                                            \
         errno = ENOMEM;                                                     \
     }                                                                       \
-    this->pub.base.new     = _classname ## _new;                            \
-    this->pub.base.delete  = _classname ## _delete 
+    this->new     = _classname ## _new;                                     \
+    this->delete  = _classname ## _delete 
 
 #define DESTROY_OBJECT(_object)                                             \
-    (_object)->base.delete((_object))
+    (_object)->delete((_object))
 
 #define PASTE_PUBLIC_PARTS(_classname)                                      \
-    struct _classname pub
+    struct _classname 
 
 #define BASE_OBJECT                                                         \
-    struct Object base
+    struct Object
 
 #define CLASS_PUBLIC(_classname)                                            \
     struct _classname {                                                     \
@@ -45,6 +42,8 @@
     struct _classname ## PRIVATE {                                          \
     PASTE_PUBLIC_PARTS(_classname); // Want semicolon here
 
+
+// Unfortunately we can't use anonymous structs since they are references. :(
 #define EXTENDS_CLASS(_classname, obj_name)                                 \
     struct _classname *obj_name
 

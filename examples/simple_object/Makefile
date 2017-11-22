@@ -1,6 +1,6 @@
 CC=gcc
 INC_DIR= ../..
-CFLAGS=-I$(INC_DIR)  
+CFLAGS=-I$(INC_DIR) -std=c11 -fms-extensions
 
 EXE=simple_object
 

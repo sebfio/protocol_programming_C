@@ -13,20 +13,20 @@ int get_eh(void *self) {
 
 CONSTRUCTOR(canadian) {
     CONSTRUCTOR_STD(canadian);
-    this->pub.dude          = NEW(person, NULL);
+    this->dude              = NEW(person, NULL);
 
     this->ehs_said          = 1314123;
-    this->pub.likes_poutine = true;
+    this->likes_poutine     = true;
 
     // Overrides the 'person' default value and sets it to true
-    this->pub.dude->is_cool = true;
+    this->dude->is_cool     = true;
 
     return this;
 }
 
 DESTRUCTOR(canadian) {
     GET_THIS(canadian);
-    DELETE(this->pub.dude);
+    DELETE(this->dude);
 
     free(self);
 }

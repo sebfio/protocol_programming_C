@@ -16,8 +16,8 @@ CONSTRUCTOR(person) {
     CONSTRUCTOR_STD(person);
     this->salary        = 99999.99;
     this->ssn           = 1234567890;
-    this->pub.is_cool   = false;
-    this->pub.get_ssn   = get_ssn;
+    this->is_cool       = false;
+    this->get_ssn       = get_ssn;
     return this;
 }
 
