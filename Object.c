@@ -4,10 +4,10 @@
 // from the object base class
 
 void *new(void *arg) {
-    return ((struct Object *)arg)->new();
+    return ((struct Object *)arg)->new(arg);
 }
 
 
 void delete(void *arg) {
-    return ((struct Object *)arg)->delete();
+    ((struct Object *)arg)->delete(arg);
 }
