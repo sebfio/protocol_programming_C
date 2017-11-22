@@ -47,8 +47,11 @@
 #define EXTENDS_CLASS(_classname, obj_name)                                 \
     struct _classname *obj_name
 
-#define END_CLASS   };
+#define EXTENDS_PROTOCOL(_protocolname)                                     \
+    struct _protocolname 
 
+#define END_CLASS   };
+#define END_PROTOCOL   }; 
 #define CONSTRUCTOR(_classname)                                             \
     void * _classname ## _new(void *args)
 
@@ -60,5 +63,8 @@
 
 #define DELETE(self)                                                        \
     delete((self))
+
+#define PROTOCOL(_protocolname)                                             \
+    struct _protocolname {
 
 #endif // PROTOCOL_H_
